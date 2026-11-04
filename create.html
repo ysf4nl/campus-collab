@@ -3,57 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Post a Team Listing · CampusCollab</title>
+  <title>Create a Listing | CampusCollab</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header>
     <a href="index.html" class="logo">CampusCollab</a>
-    <nav aria-label="Main navigation">
+    <nav aria-label="Main menu">
       <a href="index.html">Open Teams</a>
-      <a href="index.html#how-it-works">About</a>
+      <a href="index.html#about">About</a>
       <a href="create.html" aria-current="page">Post a Listing</a>
     </nav>
   </header>
 
   <main>
     <h1>Create a Team Listing</h1>
-    <p class="subtitle">Publish your project or study group so other students can join your team.</p>
+    <p>Publish your project or study group so other students can join your team.</p>
 
-    <section class="form-section" aria-labelledby="form-title">
-      <h2 id="form-title">Project &amp; Team Details</h2>
+    <form id="create-form" action="#" method="post" novalidate>
+      <fieldset>
+        <legend>Project &amp; Team Details</legend>
 
-      <form action="#" method="post">
         <label for="title">Project or Group Title</label>
-        <input id="title" name="title" type="text" placeholder="e.g. React Study Group" required>
+        <input id="title" name="title" type="text" placeholder="e.g. React Study Group">
 
-        <label for="email">Leader University Email</label>
-        <input id="email" name="email" type="email" placeholder="you@ostimteknik.edu.tr" required>
+        <label for="leader">Team Leader</label>
+        <input id="leader" name="leader" type="text" placeholder="Your full name">
+
+        <label for="email">University Email</label>
+        <input id="email" name="email" type="email" placeholder="you@ostimteknik.edu.tr">
 
         <label for="category">Category</label>
-        <select id="category" name="category" required>
+        <select id="category" name="category">
           <option value="">-- Select a category --</option>
           <option value="course">Course Project</option>
-          <option value="hackathon">Hackathon Team</option>
+          <option value="hackathon">Hackathon</option>
           <option value="study">Study Group</option>
-          <option value="startup">Side Project / Startup</option>
+          <option value="project">Project</option>
+          <option value="presentation">Presentation</option>
         </select>
 
         <label for="seats">Open Seats Needed (1 to 5)</label>
-        <input id="seats" name="seats" type="number" min="1" max="5" value="2" required>
+        <input id="seats" name="seats" type="number" min="1" max="5" value="2">
 
         <label for="deadline">Application Deadline</label>
-        <input id="deadline" name="deadline" type="date" required>
+        <input id="deadline" name="deadline" type="date">
+      </fieldset>
 
-        <button type="submit">Publish Listing</button>
-      </form>
-    </section>
+      <p id="form-message" role="status"></p>
+      <button type="submit">Publish Listing</button>
+    </form>
   </main>
 
   <footer>
-    <p>&copy; 2026 CampusCollab · MIS 457 Web Based Application Programming</p>
+    <p>© 2026 CampusCollab · MIS 457 Web Based Application Programming</p>
   </footer>
 
+  <script src="app.js"></script>
 </body>
 </html>
