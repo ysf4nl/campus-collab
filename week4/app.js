@@ -1,3 +1,4 @@
+const API_URL = "https://jsonplaceholder.typicode.com/users";
 const list = document.querySelector("#user-list");
 const statusText = document.querySelector("#status");
 let users = [];
@@ -13,10 +14,17 @@ function render(items) {
 
 async function loadUsers() {
   statusText.textContent = "Loading...";
-  const response = await fetch("data.json");
-  users = await response.json();
-  statusText.textContent = "";
-  render(users);
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+      throw new Error("HTTP " + response.status);
+    }
+    users = await response.json();
+    statusText.textContent = "";
+    render(users);
+  } catch (error) {
+    statusText.textContent = "Error: " + error.message;
+  }
 }
 
 loadUsers();
